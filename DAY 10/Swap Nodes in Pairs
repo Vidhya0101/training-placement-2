@@ -1,0 +1,8 @@
+def swapPairs(head):
+    dummy = ListNode(0, head)
+    cur = dummy
+    while cur.next and cur.next.next:
+        a, b = cur.next, cur.next.next
+        cur.next, a.next, b.next = b, b.next, a
+        cur = a
+    return dummy.next
