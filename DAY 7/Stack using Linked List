@@ -1,0 +1,18 @@
+class StackLL {
+    class Node {
+        int val;
+        Node next;
+        Node(int v) { val = v; }
+    }
+    Node top;
+    void push(int x) {
+        Node n = new Node(x);
+        n.next = top;
+        top = n;
+    }
+    int pop() {
+        int v = top.val;
+        top = top.next;
+        return v;
+    }
+}
