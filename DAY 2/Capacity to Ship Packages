@@ -1,0 +1,23 @@
+class Solution {
+    public int shipWithinDays(int[] w, int d) {
+        int l = 0, r = 0;
+        for (int x : w) {
+            l = Math.max(l, x);
+            r += x;
+        }
+        while (l < r) {
+            int mid = (l + r) / 2;
+            int days = 1, sum = 0;
+            for (int x : w) {
+                if (sum + x > mid) {
+                    days++;
+                    sum = 0;
+                }
+                sum += x;
+            }
+            if (days > d) l = mid + 1;
+            else r = mid;
+        }
+        return l;
+    }
+}
