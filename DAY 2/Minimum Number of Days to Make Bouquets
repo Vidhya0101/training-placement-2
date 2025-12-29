@@ -1,0 +1,22 @@
+class Solution {
+    public int minDays(int[] bloom, int m, int k) {
+        int l = 1, r = 0;
+        for (int b : bloom) r = Math.max(r, b);
+        if ((long)m * k > bloom.length) return -1;
+        while (l < r) {
+            int mid = (l + r) / 2;
+            int cnt = 0, bouquets = 0;
+            for (int b : bloom) {
+                if (b <= mid) cnt++;
+                else cnt = 0;
+                if (cnt == k) {
+                    bouquets++;
+                    cnt = 0;
+                }
+            }
+            if (bouquets < m) l = mid + 1;
+            else r = mid;
+        }
+        return l;
+    }
+}
