@@ -1,0 +1,10 @@
+def backspaceCompare(s, t):
+    def build(st):
+        stack = []
+        for c in st:
+            if c != '#':
+                stack.append(c)
+            elif stack:
+                stack.pop()
+        return stack
+    return build(s) == build(t)
