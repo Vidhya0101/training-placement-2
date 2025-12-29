@@ -1,0 +1,22 @@
+class QueueLL {
+    class Node {
+        int val;
+        Node next;
+        Node(int v) { val = v; }
+    }
+    Node front, rear;
+    void enqueue(int x) {
+        Node n = new Node(x);
+        if (rear == null) front = rear = n;
+        else {
+            rear.next = n;
+            rear = n;
+        }
+    }
+    int dequeue() {
+        int v = front.val;
+        front = front.next;
+        if (front == null) rear = null;
+        return v;
+    }
+}
