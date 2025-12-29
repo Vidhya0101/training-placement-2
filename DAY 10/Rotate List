@@ -1,0 +1,13 @@
+def rotateRight(head, k):
+    if not head or not head.next: return head
+    cur, length = head, 1
+    while cur.next:
+        cur = cur.next
+        length += 1
+    cur.next = head
+    k %= length
+    for _ in range(length - k):
+        cur = cur.next
+    new_head = cur.next
+    cur.next = None
+    return new_head
