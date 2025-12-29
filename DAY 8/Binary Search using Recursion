@@ -1,0 +1,10 @@
+class Solution {
+    public int binarySearch(int[] arr, int l, int r, int key) {
+        if (l > r) return -1;
+        int mid = (l + r) / 2;
+        if (arr[mid] == key) return mid;
+        if (key < arr[mid])
+            return binarySearch(arr, l, mid - 1, key);
+        return binarySearch(arr, mid + 1, r, key);
+    }
+}
