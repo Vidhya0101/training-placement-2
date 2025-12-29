@@ -1,0 +1,7 @@
+def nextGreaterElement(nums1, nums2):
+    stack, m = [], {}
+    for n in nums2:
+        while stack and stack[-1] < n:
+            m[stack.pop()] = n
+        stack.append(n)
+    return [m.get(n, -1) for n in nums1]
