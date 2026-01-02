@@ -1,0 +1,6 @@
+from collections import defaultdict
+def groupAnagrams(strs):
+    m = defaultdict(list)
+    for s in strs:
+        m[tuple(sorted(s))].append(s)
+    return list(m.values())
