@@ -1,0 +1,5 @@
+from collections import Counter
+def getHint(secret, guess):
+    bulls = sum(a == b for a, b in zip(secret, guess))
+    cows = sum((Counter(secret) & Counter(guess)).values()) - bulls
+    return f"{bulls}A{cows}B"
