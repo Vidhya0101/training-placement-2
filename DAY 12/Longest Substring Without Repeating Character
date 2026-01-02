@@ -1,0 +1,9 @@
+def lengthOfLongestSubstring(s):
+    m = {}
+    l = res = 0
+    for r, ch in enumerate(s):
+        if ch in m and m[ch] >= l:
+            l = m[ch] + 1
+        m[ch] = r
+        res = max(res, r - l + 1)
+    return res
