@@ -1,0 +1,12 @@
+def checkSubarraySum(nums, k):
+    m = {0: -1}
+    s = 0
+    for i, n in enumerate(nums):
+        s += n
+        r = s % k if k else s
+        if r in m:
+            if i - m[r] > 1:
+                return True
+        else:
+            m[r] = i
+    return False
