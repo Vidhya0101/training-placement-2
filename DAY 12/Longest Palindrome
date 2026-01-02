@@ -1,0 +1,7 @@
+from collections import Counter
+def longestPalindrome(s):
+    c = Counter(s)
+    res = 0
+    for v in c.values():
+        res += (v // 2) * 2
+    return res + 1 if res < len(s) else res
